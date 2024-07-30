@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using CRUDEstadosEF.Models.Context;
+
 using CRUDEstadosEF.Models.Entities;
 using CRUDEstadosEF.Models.BL;
 
@@ -24,7 +24,7 @@ namespace CRUDEstadosEF.Controllers
         public async Task<IActionResult> Index()
         {
             var estados = await _bEstados.Consultar();
-            return View(estados);   
+            return View(estados);
         }
 
         // GET: Estados/Details/5
@@ -111,17 +111,17 @@ namespace CRUDEstadosEF.Controllers
 
         private bool EstadosExists(short id)
         {
-          return (_bEstados.Consultar(id) != null ? true : false);
+            return (_bEstados.Consultar(id) != null ? true : false);
         }
 
-        private async Task<IActionResult> Consultar(int? id)
+        private async Task<IActionResult> Consultar(short? id)
         {
-            if(id==null)
+            if (id == null)
             {
                 return NotFound();
             }
             var estados = await _bEstados.Consultar(id);
-            if(estados != null)
+            if (estados == null)
             {
                 return NotFound();
             }

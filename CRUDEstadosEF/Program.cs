@@ -1,4 +1,4 @@
-using CRUDEstadosEF.Models.Context;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,9 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Add services to the container.
-builder.Services.AddDbContext<EstadosContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
+
 // Add Authorization services
 builder.Services.AddAuthorization();
 

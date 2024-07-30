@@ -8,7 +8,7 @@ namespace CRUDEstadosEF.Models.BL
 {
     public class BEstados
     {
-        private static readonly HttpClient _client;
+      
         private string _urlWebAPI;
 
         public BEstados()
